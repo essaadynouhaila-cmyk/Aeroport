@@ -6,13 +6,13 @@ var map = new ol.Map({
     view: new ol.View({
         constrainResolution: false,
         maxZoom: 12,
-        minZoom: 5,
+        minZoom: 4,
         
     })
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([-2146271.370498, 2426276.895552, 192547.773866, 4466647.236194], map.getSize());
+map.getView().fit([-2482291.465985, 2261629.056423, 360557.821609, 4756303.910217], map.getSize());
 
 //change cursor
 function pointerOnFeature(evt) {
@@ -497,6 +497,17 @@ var bottomRightContainerDiv = document.getElementById('bottom-right-container')
 
 //title
 
+var Title = new ol.control.Control({
+    element: (() => {
+        var titleElement = document.createElement('div');
+        titleElement.className = 'top-right-title ol-control';
+        titleElement.innerHTML = '<h2 class="project-title">Carte des Aeroports de Maroc</h2>';
+        return titleElement;
+    })(),
+    target: 'top-right-container'
+});
+map.addControl(Title)
+    
 //abstract
 
 

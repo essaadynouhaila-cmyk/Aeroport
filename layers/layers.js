@@ -37,9 +37,13 @@ var jsonSource_CAPACITE2_2 = new ol.source.Vector({
     attributions: ' ',
 });
 jsonSource_CAPACITE2_2.addFeatures(features_CAPACITE2_2);
+cluster_CAPACITE2_2 = new ol.source.Cluster({
+  distance: 30,
+  source: jsonSource_CAPACITE2_2
+});
 var lyr_CAPACITE2_2 = new ol.layer.Vector({
                 declutter: false,
-                source:jsonSource_CAPACITE2_2, 
+                source:cluster_CAPACITE2_2, 
                 style: style_CAPACITE2_2,
                 popuplayertitle: 'CAPACITE2',
                 interactive: true,
@@ -54,7 +58,7 @@ lyr_CAPACITE2_2.set('fieldAliases', {'Nom_fr': 'Nom_fr', 'Nom_ar': 'Nom_ar', 'ia
 lyr_Limites_MAR_0.set('fieldImages', {'OBJECTID': 'TextEdit', });
 lyr_Regions_MAR_1.set('fieldImages', {'OBJECTID': 'TextEdit', 'CODE_REGIO': 'TextEdit', 'Nom_Region': 'TextEdit', 'Population': 'TextEdit', 'Menages': 'TextEdit', 'Etrangers': 'TextEdit', 'Marocains': 'TextEdit', 'Non_ar': 'TextEdit', });
 lyr_CAPACITE2_2.set('fieldImages', {'Nom_fr': 'TextEdit', 'Nom_ar': 'TextEdit', 'iata': 'TextEdit', 'Capacité': 'TextEdit', 'Capacite_A': 'TextEdit', 'Capacite_1': 'TextEdit', 'Capacite_2': 'TextEdit', });
-lyr_Limites_MAR_0.set('fieldLabels', {'OBJECTID': 'no label', });
+lyr_Limites_MAR_0.set('fieldLabels', {'OBJECTID': 'hidden field', });
 lyr_Regions_MAR_1.set('fieldLabels', {'OBJECTID': 'hidden field', 'CODE_REGIO': 'hidden field', 'Nom_Region': 'inline label - always visible', 'Population': 'inline label - always visible', 'Menages': 'hidden field', 'Etrangers': 'hidden field', 'Marocains': 'hidden field', 'Non_ar': 'inline label - always visible', });
 lyr_CAPACITE2_2.set('fieldLabels', {'Nom_fr': 'inline label - always visible', 'Nom_ar': 'inline label - always visible', 'iata': 'hidden field', 'Capacité': 'hidden field', 'Capacite_A': 'hidden field', 'Capacite_1': 'inline label - always visible', 'Capacite_2': 'hidden field', });
 lyr_CAPACITE2_2.on('precompose', function(evt) {
